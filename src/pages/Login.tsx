@@ -15,13 +15,16 @@ export default function Login(){
     onSuccess: (data) => {
       setEmail("");
       setPassword("");
-      setPassword("");
       alert(data.message || "Login successful");
     },
   });
 
   const handleLogin = () => {
-    mutation.mutate({ email, password });
+    const data: LoginPayload = {
+      email: email,
+      password: password,
+    }
+    mutation.mutate(data);
   };
 
   return (
