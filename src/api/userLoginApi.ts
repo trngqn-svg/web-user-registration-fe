@@ -8,7 +8,9 @@ export interface LoginResponse{
 }
 
 export const loginUser = async (payload: LoginPayload): Promise<LoginResponse> => {
-  const res = await fetch("http://localhost:3000/user/login", {
+  const API_URL = import.meta.env.BASE_URL;
+
+  const res = await fetch(`${API_URL}/user/login`, {
     method: "POST",
     headers: { "Content-type": "application/json"},
     body: JSON.stringify(payload),
